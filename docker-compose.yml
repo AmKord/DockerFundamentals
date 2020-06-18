@@ -1,0 +1,21 @@
+version: "3"
+services:
+    frontend:
+        container_name: react-client
+        build:
+            context: ./reactdocker
+            dockerfile: Dockerfile
+        image: react/react-client
+        ports:
+            - "3000:3000"
+        stdin_open: true
+       
+    backend:
+        container_name: node-server
+        build:
+            context: ./nodejsexpress
+            dockerfile: Dockerfile
+        image: nodejsexpress/node-server
+        ports:
+            - "5000:8080"
+       
