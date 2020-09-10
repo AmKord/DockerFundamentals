@@ -19,6 +19,7 @@ deploy:
   bucket_path: "docker"
   on:
     branch: master # only deploy when code is pushed to master branch
-  
+  access_key_id: $access_key_id
+  secret_access_key: $secret_access_key
 
 
