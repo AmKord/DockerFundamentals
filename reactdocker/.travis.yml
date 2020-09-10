@@ -1,0 +1,11 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t amkord/dockerfundamentals -f /reactdocker/Dockerfile.dev . #tagging image as we don't have access to the container id generated after build
+
+
+script:
+  - docker run -e CI=true amkord/dockerfundamentals npm run test

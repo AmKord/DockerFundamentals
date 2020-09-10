@@ -7,7 +7,7 @@ FROM node:10
 WORKDIR /usr/src/app
  
 # Copies package.json and package-lock.json to Docker environment
-COPY package.json ./
+COPY /reactdocker/package.json ./
 RUN rm -rf node_modules
 RUN rm -rf package-lock.json
  
