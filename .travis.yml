@@ -19,7 +19,6 @@ deploy:
   bucket_path: "docker"
   on:
     branch: master # only deploy when code is pushed to master branch
-  access_key_id: AKIAIVMITLO65KSA2GKA
-  secret_access_key: 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
+  
 
 
