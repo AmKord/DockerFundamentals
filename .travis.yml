@@ -9,3 +9,17 @@ before_install:
 
 script:
   - docker run -e CI=true amkord/dockerfundamentals npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: docker
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-eu-west-1-114151569823"
+  bucket_path: "docker"
+  on:
+    branch: master # only deploy when code is pushed to master branch
+  access_key_id: AKIAIVMITLO65KSA2GKA
+  secret_access_key: 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
+
+
