@@ -3,12 +3,26 @@ services:
     frontend:
         container_name: react-client
         build:
-            context: ./reactdocker
-            dockerfile: Dockerfile
+            context: ./reactdocker # where we want the files and folders to be pulled from
+            dockerfile: Dockerfile # name of the dockerfile in the context, used to build the image
         image: react/react-client
         ports:
             - "3000:3000"
+        volumes:
+            - /usr/src/app/node_modules # Donot map this folder
+            - ./reactdocker:/usr/src/app # Map current folder outside the container to app folder inside the container, The folder inside container should be WORKDIR
         stdin_open: true
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+    
+    tests:
+        build:
+            context: ./reactdocker #second container to run tests
+            dockerfile: Dockerfile.dev
+        volumes:
+            - /usr/src/app/node_modules
+            - ./reactdocker:/usr/src/app
+        command: ["npm","run","test"]  #over ride default run command
        
     backend:
         container_name: node-server

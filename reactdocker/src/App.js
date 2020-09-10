@@ -8,17 +8,15 @@ function App() {
   .then(function(response) {
     response.json().then(function(resp) {
      document.getElementById('para').innerHTML = resp.response;
-     
+     console.log("HELLO");
     });
   });
   
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <header >
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -28,8 +26,8 @@ function App() {
           Learn React
         </a>
       
-      </header> */}
-      <p >Hello from react</p> 
+      </header>
+      <p >Hello from react Updated</p> 
       <p >Response from express docker:</p> 
       <p id='para'></p> 
     </div>
